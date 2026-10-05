@@ -16,9 +16,14 @@
         dest: /etc/nginx/app-location-conf.d/fair.conf
         content: |
           location / {
-              auth_request /validate;
-              root /var/www/html;
-              index index.html;
+            error_page 401 = @custom_401;
+            auth_request /validate;
+
+            auth_request_set $username $upstream_http_username;
+            proxy_set_header REMOTE_USER $username;
+
+            root /var/www/html;
+            index index.html;
           }
         owner: root
         group: root
