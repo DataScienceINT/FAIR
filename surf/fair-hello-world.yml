@@ -1,0 +1,30 @@
+---
+- name: Configure FAIR hello world page
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Create hello world page
+      ansible.builtin.copy:
+        dest: /var/www/html/index.html
+        content: "hele world\n"
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Configure nginx location for FAIR page with SRAM authentication
+      ansible.builtin.copy:
+        dest: /etc/nginx/app-location-conf.d/fair.conf
+        content: |
+          location / {
+              auth_request /validate;
+              root /var/www/html;
+              index index.html;
+          }
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Reload nginx
+      ansible.builtin.service:
+        name: nginx
+        state: reloaded
