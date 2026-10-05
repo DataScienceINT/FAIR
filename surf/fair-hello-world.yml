@@ -6,7 +6,7 @@
     - name: Create hello world page
       ansible.builtin.copy:
         dest: /var/www/html/index.html
-        content: "hele world\n"
+        content: "hello world\n"
         owner: root
         group: root
         mode: "0644"
