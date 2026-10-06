@@ -6,6 +6,51 @@ TSAR-based MVP.
 
 ## Language
 
+**Endpoint terminology**:
+The terminology used by a source for assay readouts, biological endpoints,
+regulatory endpoints, or OECD reporting endpoints. These concepts are distinct;
+their relationships may remain unresolved, and not every source or method
+describes all four.
+_Avoid_: Interchangeable endpoint labels
+
+**Reporting unit**:
+The entity or level of information described by an OHT report, established from
+the authoritative template documentation. Method/protocol information,
+individual-study information, and chemical-specific observed results remain
+distinct rather than interchangeable.
+_Avoid_: Test method as an assumed universal reporting unit
+
+**Field-population status**:
+The state of population of an OHT field: unpopulated, partially populated, or
+populated, with present and missing components identified for partial population.
+It is distinct from source/access status and uncertainty/conflict status, whose
+conditions may coexist for one field.
+_Avoid_: Combined availability and population status
+
+**Field disposition**:
+An explicit account of how a relevant OHT field is treated in a draft, including
+the reason it remains unpopulated and any supporting evidence. It does not
+collapse field-population status, source access, and uncertainty into one state.
+_Avoid_: Blank field as an explanation
+
+**Documented blocked attempt**:
+A deeper-processing attempt whose inability to proceed is recorded with its
+reasons and supporting findings. It is distinct from a successful populated or
+partial populated draft.
+_Avoid_: Successful population run
+
+**Not applicable**:
+A finding supported by OHT semantics or authoritative method documentation that
+the field does not apply to the reporting case. Missing evidence alone does not
+establish non-applicability.
+_Avoid_: Missing information
+
+**Inventory completion**:
+Completion of the agreed, bounded source-discovery scope with its inspections
+logged. It does not imply exhaustive source coverage, availability of all
+referenced material, or an eligible candidate for deeper processing.
+_Avoid_: Exhaustive source coverage
+
 **Source-supported assertion**:
 A narrowly scoped assertion attributed to identifiable source material. The term
 does not imply that scientific adequacy or validity has been established.
@@ -69,7 +114,8 @@ _Avoid_: Source-expressed uncertainty, scientific adequacy rating
 **Missing or unknown information**:
 Information currently unavailable to the record, distinguished as not reported in
 the inspected material, not yet checked, or inaccessible where applicable.
-Non-reporting in inspected material does not establish absence elsewhere.
+Non-reporting in inspected material does not establish absence elsewhere, and
+failed inspection establishes neither non-reporting, non-applicability, nor absence.
 _Avoid_: Evidence of absence
 
 **Source-fidelity review**:
